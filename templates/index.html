@@ -14,17 +14,14 @@
         <h1>***Checkerboard***</h1>
     </div>
     <table class="center">
-        {% for i in range(4) %}
+        {% for i in range(x) %}
         <tr>
-            {% for j in range(4) %}
-            <td class="color1"></td>
-            <td class="color2"></td>
-            {% endfor %}
-        </tr>
-        <tr>
-            {% for j in range(4) %}
-            <td class="color2"></td>
-            <td class="color1"></td>
+            {% for j in range(y) %}
+            {% if (i+j) % 2 == 0 %}
+            <td class="square0"></td>
+            {% else %}
+            <td class="square1"></td>
+            {% endif %}
             {% endfor %}
         </tr>
         {% endfor %}

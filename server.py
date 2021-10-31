@@ -1,20 +1,17 @@
 from flask import Flask, render_template
-from checkerboard import checkerBoard
 app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("index.html",x=8,y=8)
 
-@app.route("/4")
-def four():
-    return render_template("index2.html")
+@app.route("/<int:x>")
+def four(x):
+    return render_template("index.html",x=x,y=8)
 
-# @app.route("/<int:x>/<int:y>")
-# def checkerBoard(x,y):
-#     results= checkerBoard (x,y)
-#     return render_template("index3.html",results=results)
-
+@app.route("/<int:x>/<int:y>")
+def thirdRoute(x,y):
+    return render_template("index.html",x=x,y=y)
 
 
 if __name__ == "__main__":
